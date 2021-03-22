@@ -1,40 +1,32 @@
 import { StatusBar } from 'expo-status-bar';
 import React, {useState} from 'react';
-import { StyleSheet, Text, View, FlatList, TouchableOpacity } from 'react-native';
+import Header from './components/header'
+import { FlatList, StyleSheet, Text, View } from 'react-native';
 
 export default function App() {
-  const [people, setPeople] = useState([
-    {name: "Rishabh", key: '1'},
-    {name: "Digvijay", key: "2"},
-    {name: "Arnav", key:"3"},
-    {name: "Ekagra", key:"4"},
-    {name: "Rishabh", key: '5'},
-    {name: "Digvijay", key: "6"},
-    {name: "Arnav", key:"7"},
-    {name: "Ekagra", key:"8"},
-    {name: "Kittu", key: "9"}
-  ]);
-
-  const pressHandler = (id) => {
-    
-    setPeople((prevPeople) => {
-      return prevPeople.filter(person => person.key != id)
-    })
-    }
-
+    const [todos, setTodos] = useState([
+      {text: "Buy A Coffee", key:"1"},
+      {text: "Create an app", key: "2"}
+    ])
+  
   return (
     <View style={styles.container}>
+      {/* header */}
+        <Header />
+    <View style={styles.content}>
+      {/* to form */}
 
-    <FlatList 
-      numColumns={2}
-      data={people}
-      renderItem={({item}) => (
-        <TouchableOpacity onPress={() => pressHandler(item.key)}>
-        <Text style={styles.item}>{item.name}</Text>
-        </TouchableOpacity>
-      )}
-    />
-      
+      <View style={styles.list}>
+        {/* Flatlist */}
+        <FlatList
+          data={todos}
+          renderItem={({ item }) => (
+            <Text>{item.text}</Text>
+          )}
+        />
+      </View>
+    </View>
+
       <StatusBar style="auto" />
     </View>
   );
@@ -44,17 +36,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#2ff',
-    paddingTop: 40,
-    paddingHorizontal: 20
-    // alignItems: 'center',
-    // justifyContent: 'center',
   },
-  item:{
-    marginTop: 24,
-    padding: 30,
-    backgroundColor: 'pink',
-    fontSize: 24,
-    marginHorizontal: 20
+  content: {
+    padding: 40
+  },
+  list: {
+    marginTop: 20
   }
-  
 });
