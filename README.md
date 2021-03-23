@@ -1,7 +1,7 @@
 # react-native-tutorial
-This repo is a tutorial for React Native app development.
+This Repositoty is a tutorial for React Native app development.
 
-Different Branches consist of walkthrough apps.
+Different Branches consist of different walkthrough apps.
 
 
 # Learning Source: 
