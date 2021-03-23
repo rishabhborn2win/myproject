@@ -9,6 +9,7 @@ export default function AddToDo({pressHandler}) {
     }
 
     const onSubmit = (text) => {
+        
         pressHandler(text)
         setText(" ");
         
