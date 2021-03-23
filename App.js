@@ -4,6 +4,7 @@ import Header from './components/header'
 import { Alert, FlatList, StyleSheet, Text, View, TouchableWithoutFeedback, Keyboard } from 'react-native';
 import ToDoItems from './components/todoitems';
 import AddToDo from './components/addtodo';
+import SandBox from './components/sandbox';
 
 export default function App() {
     const [todos, setTodos] = useState([
@@ -35,6 +36,7 @@ export default function App() {
   }
     }
   return (
+    // <SandBox />
     <TouchableWithoutFeedback onPress={() => {
       Keyboard.dismiss()
     }}>
@@ -66,9 +68,11 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   content: {
+    flex: 1,
     padding: 40
   },
   list: {
+    flex: 1,
     marginTop: 20
   }
 });
